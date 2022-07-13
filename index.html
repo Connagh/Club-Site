@@ -1,15 +1,77 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>SSVRC</title>
-</head>
+<html lang="en">
+  <head>
+    <title>SSVRC</title>
+
+<style>
+  .box{
+    color: red;
+  } 
+</style>
+
+  </head>
+
   <body>
-    <img src="Mermaids/mermaid0.png" width: 30%; height: 30%>
-    <img src="Mermaids/mermaid1.png" width: 30%; height: 30%>
-    <img src="Mermaids/mermaid2.png" width: 30%; height: 30%>
-    <img src="Mermaids/mermaid3.png" width: 30%; height: 30%>
-    <img src="Mermaids/mermaid4.png" width: 30%; height: 30%>
-    <img src="Mermaids/mermaid5.png" width: 30%; height: 30%>
-</body>
+
+    <!--
+    <div class="box">
+      Text hello!
+    </div>
+    
+    <button onclick="changeColor('blue')">Blue</button>
+    <button onclick="changeColor('red')">Red</button>
+    <button onclick="changeColor('green')">Green</button>
+
+    <button onclick="hide('hidden')">Hide</button>
+    <button onclick="hide('visible')">Show</button>
+    
+    <button onclick="banish('none')">Banish</button>
+    <button onclick="banish('inline')">Reborn</button>
+    -->
+    
+    <button onclick="hidePic1('none')">Hide Pic1</button>
+    <button onclick="hidePic1('block')">Show Pic1</button>
+
+    <script>
+      /*
+      function changeColor(color){
+        document.querySelector('.box').style.color = color;
+      }
+
+      function hide(state){
+        document.querySelector('.box').style.visibility = state;
+      }
+      */
+
+      function hidePic1(state){
+        document.querySelector('.pic1').style.display = state;
+      }
+
+
+    </script>
+
+    <div class="pic1" display = block>
+      <img src="Mermaids/mermaid0.png" width: 30%; height: 30%>
+    </div>
+
+    <div class="pic2" display = block>
+      <img src="Mermaids/mermaid1.png" width: 30%; height: 30%>
+    </div>
+
+    <div class="pic3" display = block>
+      <img src="Mermaids/mermaid2.png" width: 30%; height: 30%>
+    </div>
+
+    <div class="pic4" display = block>
+      <img src="Mermaids/mermaid3.png" width: 30%; height: 30%>
+    </div>
+
+    <div class="pic5" display = block>
+      <img src="Mermaids/mermaid4.png" width: 30%; height: 30%>
+    </div>
+
+    <div class="pic6" display = block>
+      <img src="Mermaids/mermaid5.png" width: 30%; height: 30%>
+    </div>
+  </body>
 </html>
 
