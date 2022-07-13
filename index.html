@@ -1,6 +1,6 @@
 <html lang="en">
   <head>
-    <title>SSVRC</title>
+    <title>SSVR Club</title>
 
   <style>
     .box{
@@ -34,70 +34,84 @@
 
     <script>
       var x = 0;
+      var y = 0;
 
-      function Next() {
-        x = x + 1;
-
-        if (x > 5){
-          x = 0;
-        };
-
-        document.getElementById("00").src = "Mermaids/mermaid" + x + ".png";
-      }
-
-      function Back() {
+      function Left() {
         x = x - 1;
 
         if (x < 0){
           x = 5;
         };
 
-        document.getElementById("00").src = "Mermaids/mermaid" + x + ".png";
+        document.getElementById("0").src = "reps/" + y + x + ".png";
       }
 
-      /*
-      function changeColor(color){
-        document.querySelector('.box').style.color = color;
+      function Right() {
+        x = x + 1;
+
+        if (x > 5){
+          x = 0;
+        };
+
+        document.getElementById("0").src = "reps/" + y + x + ".png";
       }
 
-      function hide(state){
-        document.querySelector('.box').style.visibility = state;
-      }
-      */
+      function Up() {
+        y = y + 1;
 
-      function hidePic1(state){
-        document.querySelector('.pic1').style.display = state;
+        if (y > 2){
+          y = 0;
+        };
+
+        document.getElementById("0").src = "reps/" + y + x + ".png";
       }
+
+      function Down() {
+        y = y - 1;
+
+        if (y < 0){
+          y = 2;
+        };
+
+        document.getElementById("0").src = "reps/" + y + x + ".png";
+      }
+
+      function Tone(Choice) {
+        x = Choice;
+
+        document.getElementById("0").src = "reps/" + y + x + ".png";
+      }
+
 
     </script>
 
-    <div class="pic1" display = block>
-      <img id=00 src="Mermaids/mermaid0.png" width: 30%; height: 30%>
+    <div class="selectedRep" display = block>
+      <img id=0 src="reps/00.png" width: 30%; height: 30%>
     </div>
 
-    <button style="height:200px;width:200px" onclick="Next()">Next</button>
-    <button style="height:200px;width:200px" onclick="Back()">Back</button>
-
-    <!--
-    <div class="pic2" display = block>
-      <img id="01" src="Mermaids/mermaid1.png" width: 30%; height: 30%>
+    <div display=block>
+      <button style="height:40px;width:60px" onclick="Tone(0)">0</button>
+      <button style="height:40px;width:60px" onclick="Tone(1)">1</button>
+      <button style="height:40px;width:60px" onclick="Tone(2)">2</button>
+      <button style="height:40px;width:60px" onclick="Tone(3)">3</button>
+      <button style="height:40px;width:60px" onclick="Tone(4)">4</button>
+      <button style="height:40px;width:60px" onclick="Tone(5)">5</button>
     </div>
 
-    <div class="pic3" display = block>
-      <img id="02" src="Mermaids/mermaid2.png" width: 30%; height: 30%>
+    <a href="/images/myw3schoolsimage.jpg" download="Youe SSVR Club Rep">
+      <img src="/images/myw3schoolsimage.jpg" alt="W3Schools" width="104" height="142">
+    </a>
+
+    <div display=block>
+      <button style="height:100px;width:200px" onclick="Left()">Left</button>
+      <button style="height:100px;width:200px" onclick="Right()">Right</button>
+    </div>
+    
+
+    <div display=block>
+      <button style="height:100px;width:200px" onclick="Up()">Up</button>
+      <button style="height:100px;width:200px" onclick="Down()">Down</button>
     </div>
 
-    <div class="pic4" display = block>
-      <img id="03"  src="Mermaids/mermaid3.png" width: 30%; height: 30%>
-    </div>
-
-    <div class="pic5" display = block>
-      <img id="04"  src="Mermaids/mermaid4.png" width: 30%; height: 30%>
-    </div>
-
-    <div class="pic6" display = block>
-      <img id="05"  src="Mermaids/mermaid5.png" width: 30%; height: 30%>
-    </div>
-    -->
   </body>
 </html>
