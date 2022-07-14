@@ -25,7 +25,7 @@
 
       function Right() {
         x = x + 1;
-        if (x > 5){
+        if (x > 5 && x < 10){
           x = 0;
         };
         document.getElementById("0").src = "reps/" + y + x + ".png";
@@ -33,7 +33,7 @@
 
       function Up() {
         y = y + 1;
-        if (y > 2){
+        if (y > 3){
           y = 0;
         };
         document.getElementById("0").src = "reps/" + y + x + ".png";
@@ -42,7 +42,7 @@
       function Down() {
         y = y - 1;
         if (y < 0){
-          y = 2;
+          y = 3;
         };
         document.getElementById("0").src = "reps/" + y + x + ".png";
       }
@@ -70,11 +70,12 @@
       <button style="height:40px;width:60px" onclick="Tone(5)">5</button>
     </div>
     <br>
+    <!--
     <div display=block>
       <button style="height:100px;width:200px" onclick="Left()">Left</button>
       <button style="height:100px;width:200px" onclick="Right()">Right</button>
     </div>
-    
+     -->
     <h3>Style: </h3>
     <div display=block>
       <button style="height:100px;width:200px" onclick="Up()">Up</button>
