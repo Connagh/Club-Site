@@ -1,86 +1,176 @@
 <html lang="en">
   <head>
     <title>SSVR Club</title>
-
-  <style>
-    .box{
-      color: red;
-    } 
-  </style>
-
   </head>
 
   <body>
-    <script>
-      var x = 0;
-      var y = 0;
-
-      function Left() {
-        x = x - 1;
-        if (x < 0){
-          x = 5;
-        };
-        document.getElementById("0").src = "reps/" + y + x + ".png";
-      }
-
-      function Right() {
-        x = x + 1;
-        if (x > 5){
-          x = 0;
-        };
-        document.getElementById("0").src = "reps/" + y + x + ".png";
-      }
-
-      function Up() {
-        y = y + 1;
-        if (y > 3){
-          y = 0;
-        };
-        document.getElementById("0").src = "reps/" + y + x + ".png";
-      }
-
-      function Down() {
-        y = y - 1;
-        if (y < 0){
-          y = 3;
-        };
-        document.getElementById("0").src = "reps/" + y + x + ".png";
-      }
-
-      function Tone(Choice) {
-        x = Choice;
-        document.getElementById("0").src = "reps/" + y + x + ".png";
-      }
-
-    </script>
-
-    <h5>The Super Secret Character Maker</h5>
-
-    <div class="selectedRep" display = block>
-      <img id=0 src="reps/00.png" width: 30%; height: 30%>
+    <img style="height:20%; display:block" src="ssvrc_logo.png">
+    <div class="characterPreviewWindow" style="display: flex;justify-content: center; align-items: center;">
+      <button style="height:100px;width:100px" onclick="previousSpecies();"><</button>
+      <img id=liveCharacterPreview src="chars/11.png" width: 30%; height: 30%>
+      <button style="height:100px;width:100px" onclick="nextSpecies();">></button>
     </div>
 
-    <div display="block">
-      <h3>Skin tone: </h3>
-      <button style="height:40px;width:60px;background-color:#ffd454;" onclick="Tone(0)"></button>
-      <button style="height:40px;width:60px;background-color:#ffe4cc;" onclick="Tone(1)"></button>
-      <button style="height:40px;width:60px;background-color:#e8bc9c;" onclick="Tone(2)"></button>
-      <button style="height:40px;width:60px;background-color:#c89c74;" onclick="Tone(3)"></button>
-      <button style="height:40px;width:60px;background-color:#a0643c;" onclick="Tone(4)"></button>
-      <button style="height:40px;width:60px;background-color:#60443c;" onclick="Tone(5)"></button>
-    </div>
-    <br>
-    <!--
-    <div display=block>
-      <button style="height:100px;width:200px" onclick="Left()">Left</button>
-      <button style="height:100px;width:200px" onclick="Right()">Right</button>
-    </div>
-     -->
-    <h3>Style: </h3>
-    <div display=block>
-      <button style="height:100px;width:200px" onclick="Up()">Up</button>
-      <button style="height:100px;width:200px" onclick="Down()">Down</button>
+<script> 
+  var selectedSpecies = 1;
+  var selectedSkinTone = 1;
+  var maxSpecies = 3;
+
+  function nextSpecies() {
+    selectedSpecies = selectedSpecies + 1;
+    if (selectedSpecies > maxSpecies){
+      selectedSpecies = 1;
+    };
+    document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + selectedSkinTone + ".png";
+  }
+
+  function previousSpecies() {
+    selectedSpecies = selectedSpecies - 1;
+    if (selectedSpecies < 1){
+      selectedSpecies = maxSpecies;
+    };
+    document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + selectedSkinTone + ".png";
+  }
+
+  function updateSkinTone(x) {
+    selectedSkinTone = x;
+    document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + selectedSkinTone + ".png";
+  }
+
+  function buttonSetManager() {
+    if (selectedSpecies = "3"){
+      document.getElementById("buttonSet_1").style.visibility= 'hidden';
+    }
+  }
+
+
+</script>
+
+    <div style="display: flex;justify-content: center; align-items: center;">
+
+      <div id="buttonSet_1">
+      <button id=btn_skinTone_1 style="height:40px;width:60px;background-color:#ffd454;" onclick="updateSkinTone(1)"></button>
+      <button id=btn_skinTone_2 style="height:40px;width:60px;background-color:#ffe4cc;" onclick="updateSkinTone(2)"></button>
+      <button id=btn_skinTone_3 style="height:40px;width:60px;background-color:#e8bc9c;" onclick="updateSkinTone(3)"></button>
+      <button id=btn_skinTone_4 style="height:40px;width:60px;background-color:#c89c74;" onclick="updateSkinTone(4)"></button>
+      <button id=btn_skinTone_5 style="height:40px;width:60px;background-color:#a0643c;" onclick="updateSkinTone(5)"></button>
+      <button id=btn_skinTone_6 style="height:40px;width:60px;background-color:#60443c;" onclick="updateSkinTone(6)"></button>
+      </div>
+
     </div>
 
   </body>
 </html>
+
+
+
+<!-- Archive
+
+    <div id="buttonSet_2">
+        <button id=btn_skinTone_1 style="height:40px;width:60px;background-color:#ffd454;" onclick="updateSkinTone(1)"></button>
+        <button id=btn_skinTone_2 style="height:40px;width:60px;background-color:#ffe4cc;" onclick="updateSkinTone(2)"></button>
+      </div>
+
+    function skinToneButtonHider() {
+    if (selectedSpecies = "4"){
+      //document.getElementByClassName("btn_skinTone_1").style.visibility= 'hidden';
+    }
+  }
+
+// Dunno race buttons or smmt
+  function updateSkinToneButtons(){
+    if (selectedSpecies=1){
+      document.getElementById("btn_skinTone_1").style.display = 'none';
+        document.getElementById("btn_skinTone_2").style.display = 'none';
+    } else {
+    document.getElementById("btn_skinTone_1").style.display = 'block';
+    document.getElementById("btn_skinTone_2").style.display = 'block';
+  }
+}
+
+  function howManySkinToneButtonsDoWeNeed(){
+    if (selectedSpecies = 1){
+      updateSkinToneButtons(0);
+    } else if (selectedSpecies = 2){
+      updateSkinToneButtons(1);
+    } else if (selectedSpecies = 3){
+      updateSkinToneButtons(2);
+    }
+  }
+
+  //Switch Menu
+    switch(choice){
+      case 0:
+        document.getElementById("btn_skinTone_1").style.visibility = 'hidden';
+        document.getElementById("btn_skinTone_1").style.visibility = 'visible';
+      break;
+      case 1:
+        document.getElementById("btn_skinTone_1").style.visibility = 'hidden';
+        document.getElementById("btn_skinTone_2").style.visibility = 'visible';
+      break;
+
+// Skin Tone Buttons
+      <button id=btn_skinTone_1 style="height:40px;width:60px;background-color:#ffd454;" onclick="Tone(0)"></button>
+      <button id=btn_skinTone_2 style="height:40px;width:60px;background-color:#ffe4cc;" onclick="Tone(1)"></button>
+      <button id=btn_skinTone_3 style="height:40px;width:60px;background-color:#e8bc9c;" onclick="Tone(2)"></button>
+      <button id=btn_skinTone_4 style="height:40px;width:60px;background-color:#c89c74;" onclick="Tone(3)"></button>
+      <button id=btn_skinTone_5 style="height:40px;width:60px;background-color:#a0643c;" onclick="Tone(4)"></button>
+      <button id=btn_skinTone_6 style="height:40px;width:60px;background-color:#60443c;" onclick="Tone(5)"></button>
+
+
+// Species:
+      <div display=block>
+      <button style="height:100px;width:200px" onclick="Up()">Next</button>
+      <button style="height:100px;width:200px" onclick="Down()">Previous</button>
+    </div>
+
+
+// Skin Tone
+   <div display=block>
+      <button style="height:100px;width:200px" onclick="Left()">Left</button>
+      <button style="height:100px;width:200px" onclick="Right()">Right</button>
+    </div>
+
+// Scripts
+<script>
+  var x = 0;
+  var y = 0;
+
+  function Left() {
+    x = x - 1;
+    if (x < 0){
+      x = 5;
+    };
+    document.getElementById("0").src = "reps/" + y + x + ".png";
+  }
+
+  function Right() {
+    x = x + 1;
+    if (x > 5){
+      x = 0;
+    };
+    document.getElementById("0").src = "reps/" + y + x + ".png";
+  }
+
+  function Up() {
+    y = y + 1;
+    if (y > 3){
+      y = 0;
+    };
+    document.getElementById("0").src = "reps/" + y + x + ".png";
+  }
+
+  function Down() {
+    y = y - 1;
+    if (y < 0){
+      y = 3;
+    };
+    document.getElementById("0").src = "reps/" + y + x + ".png";
+  }
+
+  function Tone(Choice) {
+    x = Choice;
+    document.getElementById("0").src = "reps/" + y + x + ".png";
+  }
+
+</script>

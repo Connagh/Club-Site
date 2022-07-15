@@ -1,0 +1,161 @@
+<html lang="en">
+  <head>
+    <title>SSVR Club</title>
+  </head>
+
+  <body>
+
+    <h4>The Super Secret Character Maker</h4>
+
+    <div class="characterPreviewWindow" display = block>
+      <img id=liveCharacterPreview src="chars/11.png" width: 30%; height: 30%>
+    </div>
+
+<script> 
+  var selectedSpecies = 1;
+  var selectedSkinTone = 1;
+  var maxSpecies = 3;
+
+  function nextSpecies() {
+    selectedSpecies = selectedSpecies + 1;
+    if (selectedSpecies > maxSpecies){
+      selectedSpecies = 1;
+    };
+    document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + selectedSkinTone + ".png";
+  }
+
+  if (selectedSpecies = 1){ 
+    document.getElementById("btn_skinTone_1").style.visibility = hidden;
+  }
+
+</script>
+
+
+
+    <div display="block">
+      <h3>Skin Tone: </h3>
+      <button id=btn_skinTone_1 style="height:40px;width:60px;background-color:#ffd454;" onclick="Tone(0)"></button>
+      <button id=btn_skinTone_2 style="height:40px;width:60px;background-color:#ffe4cc;" onclick="Tone(1)"></button>
+      <button id=btn_skinTone_3 style="height:40px;width:60px;background-color:#e8bc9c;" onclick="Tone(2)"></button>
+      <button id=btn_skinTone_4 style="height:40px;width:60px;background-color:#c89c74;" onclick="Tone(3)"></button>
+      <button id=btn_skinTone_5 style="height:40px;width:60px;background-color:#a0643c;" onclick="Tone(4)"></button>
+      <button id=btn_skinTone_6 style="height:40px;width:60px;background-color:#60443c;" onclick="Tone(5)"></button>
+
+    </div>
+    <br>
+
+    <h3>Species: </h3>
+    <button style="height:100px;width:200px" onclick="nextSpecies()">Next</button>
+
+
+  <!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script></body>
+</html>
+
+
+
+<!-- Archive
+
+// Skin Tone Buttons
+      <button id=btn_skinTone_1 style="height:40px;width:60px;background-color:#ffd454;" onclick="Tone(0)"></button>
+      <button id=btn_skinTone_2 style="height:40px;width:60px;background-color:#ffe4cc;" onclick="Tone(1)"></button>
+      <button id=btn_skinTone_3 style="height:40px;width:60px;background-color:#e8bc9c;" onclick="Tone(2)"></button>
+      <button id=btn_skinTone_4 style="height:40px;width:60px;background-color:#c89c74;" onclick="Tone(3)"></button>
+      <button id=btn_skinTone_5 style="height:40px;width:60px;background-color:#a0643c;" onclick="Tone(4)"></button>
+      <button id=btn_skinTone_6 style="height:40px;width:60px;background-color:#60443c;" onclick="Tone(5)"></button>
+
+
+// Species:
+      <div display=block>
+      <button style="height:100px;width:200px" onclick="Up()">Next</button>
+      <button style="height:100px;width:200px" onclick="Down()">Previous</button>
+    </div>
+
+
+// Skin Tone
+   <div display=block>
+      <button style="height:100px;width:200px" onclick="Left()">Left</button>
+      <button style="height:100px;width:200px" onclick="Right()">Right</button>
+    </div>
+
+// Scripts
+<script>
+  var x = 0;
+  var y = 0;
+
+  function Left() {
+    x = x - 1;
+    if (x < 0){
+      x = 5;
+    };
+    document.getElementById("0").src = "reps/" + y + x + ".png";
+  }
+
+  function Right() {
+    x = x + 1;
+    if (x > 5){
+      x = 0;
+    };
+    document.getElementById("0").src = "reps/" + y + x + ".png";
+  }
+
+  function Up() {
+    y = y + 1;
+    if (y > 3){
+      y = 0;
+    };
+    document.getElementById("0").src = "reps/" + y + x + ".png";
+  }
+
+  function Down() {
+    y = y - 1;
+    if (y < 0){
+      y = 3;
+    };
+    document.getElementById("0").src = "reps/" + y + x + ".png";
+  }
+
+  function Tone(Choice) {
+    x = Choice;
+    document.getElementById("0").src = "reps/" + y + x + ".png";
+  }
+
+</script>
+
+-->
