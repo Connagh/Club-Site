@@ -11,15 +11,21 @@
     <img style="height:20%; display:block" src="ssvrc_logo.png">
 
     <div class="characterPreviewWindow" style="display: flex;justify-content: center; align-items: center;">
-      <button style="height:100px;width:100px" onclick="previousSpecies();"><</button>
+      <button style="height:100px;width:100px;background-color:grey;color:white;font-size:60px;" onclick="previousSpecies();"><</button>
       <img id=liveCharacterPreview src="chars/11.png" width: 30%; height: 30%>
-      <button style="height:100px;width:100px" onclick="nextSpecies();">></button>
+      <button style="height:100px;width:100px;background-color:grey;color:white;font-size:60px;" onclick="nextSpecies();">></button>
     </div>
 
 <script> 
   var selectedSpecies = 1;
   var selectedSkinTone = 1;
-  var maxSpecies = 3;
+  var maxSpecies = 4;
+
+  function update() {
+  document.getElementById("selectedSpecies").innerHTML = selectedSpecies;
+  document.getElementById("selectedSkinTone").innerHTML = selectedSkinTone;
+  document.getElementById("maxSpecies").innerHTML = maxSpecies;
+  }
 
   function nextSpecies() {
     selectedSpecies = selectedSpecies + 1;
@@ -27,6 +33,8 @@
       selectedSpecies = 1;
     };
     document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + selectedSkinTone + ".png";
+
+    update();
   }
 
   function previousSpecies() {
@@ -35,21 +43,32 @@
       selectedSpecies = maxSpecies;
     };
     document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + selectedSkinTone + ".png";
+
+    update();
   }
 
   function updateSkinTone(x) {
     selectedSkinTone = x;
+    if (selectedSpecies = 4){
+    selectedSkinTone= 1;
+    } else {
     document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + selectedSkinTone + ".png";
   }
+  update();
+}
 
+/*
   function buttonSetManager() {
     if (selectedSpecies = "3"){
       document.getElementById("buttonSet_1").style.visibility= 'hidden';
     }
+    update();
   }
+*/
 
 
 </script>
+
 
     <div style="display: flex;justify-content: center; align-items: center;">
 
@@ -61,8 +80,20 @@
       <button id=btn_skinTone_5 style="height:40px;width:60px;background-color:#a0643c;" onclick="updateSkinTone(5)"></button>
       <button id=btn_skinTone_6 style="height:40px;width:60px;background-color:#60443c;" onclick="updateSkinTone(6)"></button>
       </div>
-
     </div>
+
+    <div style="display: flex;color:grey">
+     <p id="selectedSpecies">1</p><p>_Species</p>
+    </div>
+
+    <div style="display: flex;color:grey">
+      <p id="selectedSkinTone">1</p><p>_SkinTone</p>
+    </div>
+
+    <div style="display: flex;color:grey">
+      <p id="maxSpecies">4</p><p>_MaxSpecies</p>
+    </div>
+
 
   </body>
 </html>
