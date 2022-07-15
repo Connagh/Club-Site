@@ -19,7 +19,7 @@
 <script> 
   var selectedSpecies = 1;
   var selectedSkinTone = 1;
-  var maxSpecies = 4;
+  var maxSpecies = 5;
 
   function update() {
   document.getElementById("selectedSpecies").innerHTML = selectedSpecies;
@@ -33,7 +33,6 @@
       selectedSpecies = 1;
     };
     document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + selectedSkinTone + ".png";
-
     update();
   }
 
@@ -43,7 +42,6 @@
       selectedSpecies = maxSpecies;
     };
     document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + selectedSkinTone + ".png";
-
     update();
   }
 
@@ -51,7 +49,6 @@
     selectedSkinTone = x;
     
     document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + selectedSkinTone + ".png";
-  
   update();
 }
 
@@ -64,9 +61,7 @@
   }
 */
 
-
 </script>
-
 
     <div style="display: flex;justify-content: center; align-items: center;">
 
