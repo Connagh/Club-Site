@@ -12,14 +12,14 @@
 
     <div class="characterPreviewWindow" style="display: flex;justify-content: center; align-items: center;">
       <button style="height:100px;width:100px;background-color:grey;color:white;font-size:60px;" onclick="previousSpecies();"><</button>
-      <img id=liveCharacterPreview src="chars/11.png" width: 30%; height: 30%>
+      <img id=liveCharacterPreview src="chars/1-1.png" width: 30%; height: 30%>
       <button style="height:100px;width:100px;background-color:grey;color:white;font-size:60px;" onclick="nextSpecies();">></button>
     </div>
 
 <script> 
   var selectedSpecies = 1;
   var selectedSkinTone = 1;
-  var maxSpecies = 6;
+  var maxSpecies = 10;
 
   function update() {
   document.getElementById("selectedSpecies").innerHTML = selectedSpecies;
@@ -32,7 +32,7 @@
     if (selectedSpecies > maxSpecies){
       selectedSpecies = 1;
     };
-    document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + selectedSkinTone + ".png";
+    document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
     update();
   }
 
@@ -41,14 +41,14 @@
     if (selectedSpecies < 1){
       selectedSpecies = maxSpecies;
     };
-    document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + selectedSkinTone + ".png";
+    document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
     update();
   }
 
   function updateSkinTone(x) {
     selectedSkinTone = x;
     
-    document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + selectedSkinTone + ".png";
+    document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
   update();
 }
 
