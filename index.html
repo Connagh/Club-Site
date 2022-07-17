@@ -34,6 +34,7 @@
       selectedSpecies = 1;
     };
     document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
+    skinToneSelectionCorrector();
     skinToneButtonHider();
     update();
     
@@ -45,6 +46,7 @@
       selectedSpecies = maxSpecies;
     };
     document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
+    skinToneSelectionCorrector();
     skinToneButtonHider();
     update();
   }
@@ -52,11 +54,11 @@
   function updateSkinTone(x) {
     selectedSkinTone = x;
     document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
-    skinToneCorrector();
+    skinToneSelectionCorrector();
     update();
   }
 
-  function skinToneCorrector(){
+  function skinToneSelectionCorrector(){
     if (selectedSpecies == 11 && (selectedSkinTone == 3 || selectedSkinTone == 4 || selectedSkinTone == 5 || selectedSkinTone == 6)) {
       selectedSkinTone = 2;
     }
