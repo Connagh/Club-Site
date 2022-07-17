@@ -19,14 +19,13 @@
 <script> 
   var selectedSpecies = 1;
   var selectedSkinTone = 1;
-  var maxSpecies = 12;
+  var maxSpecies = 13;
 
   function update() {
   document.getElementById("selectedSpecies").innerHTML = selectedSpecies;
   document.getElementById("selectedSkinTone").innerHTML = selectedSkinTone;
   document.getElementById("maxSpecies").innerHTML = maxSpecies;
   }
-
  
   function nextSpecies() {
     selectedSpecies = selectedSpecies + 1;
@@ -60,27 +59,40 @@
   function skinToneSelectionCorrector(){
     if (selectedSpecies == 11 && (selectedSkinTone == 3 || selectedSkinTone == 4 || selectedSkinTone == 5 || selectedSkinTone == 6)) {
       selectedSkinTone = 1;
-      
-    } else if (selectedSpecies == 12 && (selectedSkinTone == 3 || selectedSkinTone == 4 || selectedSkinTone == 5 || selectedSkinTone == 6)) {
+    } 
+    else if (selectedSpecies == 12 && (selectedSkinTone == 3 || selectedSkinTone == 4 || selectedSkinTone == 5 || selectedSkinTone == 6)) {
+      selectedSkinTone = 1;
+    }
+    else if (selectedSpecies == 13 && (selectedSkinTone == 2 || selectedSkinTone == 3 || selectedSkinTone == 4 || selectedSkinTone == 5 || selectedSkinTone == 6)) {
       selectedSkinTone = 1;
     }
   }
 
   function skinToneButtonHider(){
     if (selectedSpecies == 11) {
-      document.getElementById("btn_skinTone_3").style.visibility= 'hidden';
-      document.getElementById("btn_skinTone_4").style.visibility= 'hidden';
-      document.getElementById("btn_skinTone_5").style.visibility= 'hidden';
-      document.getElementById("btn_skinTone_6").style.visibility= 'hidden';
+      skinToneButtonReset();
       document.getElementById("btn_skinTone_1").style.backgroundColor= '#d893a3';
       document.getElementById("btn_skinTone_2").style.backgroundColor= '#70b8b9';
-    } else if (selectedSpecies == 12) {
       document.getElementById("btn_skinTone_3").style.visibility= 'hidden';
       document.getElementById("btn_skinTone_4").style.visibility= 'hidden';
       document.getElementById("btn_skinTone_5").style.visibility= 'hidden';
       document.getElementById("btn_skinTone_6").style.visibility= 'hidden';
+    } else if (selectedSpecies == 12) {
+      skinToneButtonReset();
       document.getElementById("btn_skinTone_1").style.backgroundColor= '#4dbeac';
       document.getElementById("btn_skinTone_2").style.backgroundColor= '#d25983';
+      document.getElementById("btn_skinTone_3").style.visibility= 'hidden';
+      document.getElementById("btn_skinTone_4").style.visibility= 'hidden';
+      document.getElementById("btn_skinTone_5").style.visibility= 'hidden';
+      document.getElementById("btn_skinTone_6").style.visibility= 'hidden';
+    } else if (selectedSpecies == 13) {
+      skinToneButtonReset();
+      document.getElementById("btn_skinTone_1").style.backgroundColor= '#d76721';
+      document.getElementById("btn_skinTone_2").style.visibility= 'hidden';
+      document.getElementById("btn_skinTone_3").style.visibility= 'hidden';
+      document.getElementById("btn_skinTone_4").style.visibility= 'hidden';
+      document.getElementById("btn_skinTone_5").style.visibility= 'hidden';
+      document.getElementById("btn_skinTone_6").style.visibility= 'hidden';
     } else {
       skinToneButtonReset()
     }
@@ -100,7 +112,6 @@
       document.getElementById("btn_skinTone_5").style.backgroundColor= '#a0643c';
       document.getElementById("btn_skinTone_6").style.backgroundColor= '#60443c';
     }
-
 
 /*
   function buttonSetManager() {
