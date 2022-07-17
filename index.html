@@ -19,7 +19,7 @@
 <script> 
   var selectedSpecies = 1;
   var selectedSkinTone = 1;
-  var maxSpecies = 10;
+  var maxSpecies = 11;
 
   function update() {
   document.getElementById("selectedSpecies").innerHTML = selectedSpecies;
@@ -27,13 +27,16 @@
   document.getElementById("maxSpecies").innerHTML = maxSpecies;
   }
 
+ 
   function nextSpecies() {
     selectedSpecies = selectedSpecies + 1;
     if (selectedSpecies > maxSpecies){
       selectedSpecies = 1;
     };
     document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
+    skinToneButtonHider();
     update();
+    
   }
 
   function previousSpecies() {
@@ -42,15 +45,52 @@
       selectedSpecies = maxSpecies;
     };
     document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
+    skinToneButtonHider();
     update();
   }
 
   function updateSkinTone(x) {
     selectedSkinTone = x;
-    
     document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
-  update();
-}
+    skinToneCorrector();
+    update();
+  }
+
+  function skinToneCorrector(){
+    if (selectedSpecies == 11 && (selectedSkinTone == 3 || selectedSkinTone == 4 || selectedSkinTone == 5 || selectedSkinTone == 6)) {
+      selectedSkinTone = 2;
+    }
+  }
+
+  function skinToneButtonHider(){
+    if (selectedSpecies == 11) {
+      document.getElementById("btn_skinTone_3").style.visibility= 'hidden';
+      document.getElementById("btn_skinTone_4").style.visibility= 'hidden';
+      document.getElementById("btn_skinTone_5").style.visibility= 'hidden';
+      document.getElementById("btn_skinTone_6").style.visibility= 'hidden';
+      document.getElementById("btn_skinTone_1").style.backgroundColor= '#d893a3';
+      document.getElementById("btn_skinTone_2").style.backgroundColor= '#70b8b9';
+
+    } else {
+      skinToneButtonReset()
+    }
+  }
+
+    function skinToneButtonReset(){
+      document.getElementById("btn_skinTone_1").style.visibility= 'visible';
+      document.getElementById("btn_skinTone_2").style.visibility= 'visible';
+      document.getElementById("btn_skinTone_3").style.visibility= 'visible';
+      document.getElementById("btn_skinTone_4").style.visibility= 'visible';
+      document.getElementById("btn_skinTone_5").style.visibility= 'visible';
+      document.getElementById("btn_skinTone_6").style.visibility= 'visible';
+      document.getElementById("btn_skinTone_1").style.backgroundColor= '#ffd454';
+      document.getElementById("btn_skinTone_2").style.backgroundColor= '#ffe4cc';
+      document.getElementById("btn_skinTone_3").style.backgroundColor= '#e8bc9c';
+      document.getElementById("btn_skinTone_4").style.backgroundColor= '#c89c74';
+      document.getElementById("btn_skinTone_5").style.backgroundColor= '#a0643c';
+      document.getElementById("btn_skinTone_6").style.backgroundColor= '#60443c';
+    }
+
 
 /*
   function buttonSetManager() {
