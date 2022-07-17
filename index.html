@@ -33,11 +33,10 @@
     if (selectedSpecies > maxSpecies){
       selectedSpecies = 1;
     };
-    document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
     skinToneSelectionCorrector();
     skinToneButtonHider();
     update();
-    
+    document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
   }
 
   function previousSpecies() {
@@ -45,17 +44,17 @@
     if (selectedSpecies < 1){
       selectedSpecies = maxSpecies;
     };
-    document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
     skinToneSelectionCorrector();
     skinToneButtonHider();
     update();
+    document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
   }
 
   function updateSkinTone(x) {
     selectedSkinTone = x;
-    document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
     skinToneSelectionCorrector();
     update();
+    document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
   }
 
   function skinToneSelectionCorrector(){
