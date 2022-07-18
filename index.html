@@ -57,8 +57,8 @@ function updateThumbnailPreviews() {
     skinToneSelectionCorrector();
     skinToneButtonHider();
     updateThumbnailPreviews();
-    update();
     document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
+    update();
   }
 
   function previousSpecies() {
@@ -69,16 +69,16 @@ function updateThumbnailPreviews() {
     skinToneSelectionCorrector();
     skinToneButtonHider();
     updateThumbnailPreviews();
-    update();
     document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
+    update();
   }
 
   function updateSkinTone(x) {
     selectedSkinTone = x;
     skinToneSelectionCorrector();
     updateThumbnailPreviews()
-    update();
     document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
+    update();
   }
 
   function skinToneSelectionCorrector(){
@@ -170,14 +170,9 @@ function updateThumbnailPreviews() {
       document.getElementById("btn_skinTone_6").style.backgroundColor= '#60443c';
     }
 
-/*
-  function buttonSetManager() {
-    if (selectedSpecies = "3"){
-      document.getElementById("buttonSet_1").style.visibility= 'hidden';
-    }
-    update();
-  }
-*/
+    function downloadCharacter() {
+        document.getElementById("image").href = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
+      }
 
 </script>
 
@@ -194,12 +189,6 @@ function updateThumbnailPreviews() {
     </div>
 
 
-    <script>
-      function downloadCharacter() {
-        //document.getElementById("image").src = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
-        document.getElementById("image").href = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
-      }
-    </script>
 
     <div style="padding-top:30px; padding-bottom:100px; display: flex;justify-content: center; align-items: center;" id="download" onclick="downloadCharacter()">
       <a id="image" href="" download="SSVRC_Character">
@@ -217,7 +206,7 @@ function updateThumbnailPreviews() {
       </a>
   </div> 
 
-<!-- Print Stats
+  <!--
     <div style="display: flex;color:grey">
      <p id="selectedSpecies">1</p><p>_Species</p>
     </div>
