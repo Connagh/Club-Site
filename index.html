@@ -6,9 +6,14 @@
     </style>
   </head>
 
-  <body>
-
+  <body onload="updateThumbnailPreviews(); update();">
     <img style="height:20%; display:block" src="ssvrc_logo.png">
+      
+    <div style="display: flex;justify-content: center; align-items: center;">
+      <img id=previousPreview style="width:7%; opacity: 30%;" src="chars/1-1.png">
+      <img id=currentPreview style="width:10%;" src="chars/1-1.png">
+      <img id=nextPreview style="width:7%; opacity: 30%;" src="chars/1-1.png">
+    </div>
 
     <div class="characterPreviewWindow" style="display: flex;justify-content: center; align-items: center;">
       <button style="height:100px;width:100px;background-color:grey;color:white;font-size:60px;" onclick="previousSpecies();"><</button>
@@ -27,6 +32,23 @@
   document.getElementById("maxSpecies").innerHTML = maxSpecies;
   }
  
+function updateThumbnailPreviews() {
+  previousChar = selectedSpecies - 1;
+  nextChar = selectedSpecies + 1;
+
+  if (previousChar < 1) {
+    previousChar = maxSpecies;
+  }
+
+  if (nextChar > maxSpecies){
+    nextChar = 1;
+  }
+  
+  document.getElementById("previousPreview").src = "chars/" + previousChar + '-' + 1 + ".png";
+  document.getElementById("currentPreview").src = "chars/" + selectedSpecies + '-' + 1 + ".png";
+  document.getElementById("nextPreview").src = "chars/" + nextChar + '-' + 1 + ".png";
+}
+
   function nextSpecies() {
     selectedSpecies = selectedSpecies + 1;
     if (selectedSpecies > maxSpecies){
@@ -34,6 +56,7 @@
     };
     skinToneSelectionCorrector();
     skinToneButtonHider();
+    updateThumbnailPreviews();
     update();
     document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
   }
@@ -45,6 +68,7 @@
     };
     skinToneSelectionCorrector();
     skinToneButtonHider();
+    updateThumbnailPreviews();
     update();
     document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
   }
@@ -52,6 +76,7 @@
   function updateSkinTone(x) {
     selectedSkinTone = x;
     skinToneSelectionCorrector();
+    updateThumbnailPreviews()
     update();
     document.getElementById("liveCharacterPreview").src = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
   }
