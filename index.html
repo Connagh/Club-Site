@@ -16,9 +16,9 @@
     </div>
 
     <div class="characterPreviewWindow" style="display: flex;justify-content: center; align-items: center;">
-      <button style="height:100px;width:100px;background-color:grey;color:white;font-size:60px;" onclick="previousSpecies();"><</button>
+      <button style="border-radius: 50px; height:100px;width:100px;background-color: lightgrey;color:white;font-size:60px;" onclick="previousSpecies();"><</button>
       <img id=liveCharacterPreview src="chars/1-1.png" width: 30%; height: 30%>
-      <button style="height:100px;width:100px;background-color:grey;color:white;font-size:60px;" onclick="nextSpecies();">></button>
+      <button style="border-radius: 50px; height:100px;width:100px;background-color:lightgrey;color:white;font-size:60px;" onclick="nextSpecies();">></button>
     </div>
 
 <script> 
@@ -193,6 +193,31 @@ function updateThumbnailPreviews() {
       </div>
     </div>
 
+
+    <script>
+      function downloadCharacter() {
+        //document.getElementById("image").src = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
+        document.getElementById("image").href = "chars/" + selectedSpecies + '-' + selectedSkinTone + ".png";
+      }
+    </script>
+
+    <div style="padding-top:30px; padding-bottom:100px; display: flex;justify-content: center; align-items: center;" id="download" onclick="downloadCharacter()">
+      <a id="image" href="" download="SSVRC_Character">
+        <button style="background-color: grey;
+        color: white;
+        padding: 10px 32px;
+        text-align: center;
+        text-decoration: none;
+        font-weight: 10px;
+        font-size: 20px;
+        display: inline-block;
+        border-radius: 5px;
+        box-shadow: 5px 10px;
+        font-size: 16px;">Save Character ✨ Forever ✨ </button>
+      </a>
+  </div> 
+
+<!-- Print Stats
     <div style="display: flex;color:grey">
      <p id="selectedSpecies">1</p><p>_Species</p>
     </div>
@@ -204,7 +229,7 @@ function updateThumbnailPreviews() {
     <div style="display: flex;color:grey">
       <p id="maxSpecies">4</p><p>_MaxSpecies</p>
     </div>
-
+  -->
 
   </body>
 </html>
